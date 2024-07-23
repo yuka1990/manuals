@@ -1,24 +1,35 @@
-# README
+# manuals
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+### サイトテーマ
+社内のマニュアルを投稿したり、検索することができる共有サイト
+​
+### テーマを選んだ理由
+社内マニュアルについて、フォーマットや格納先がバラバラで統一されていなかったり、
+そもそもマニュアルがない、古い、作成に時間がかかるなど様々な課題を感じていました。
+簡単に投稿と更新、検索ができる社内サイトがあれば、社内の情報共有もスムーズになるのでは
+と考えこのテーマにしました。
 
-Things you may want to cover:
+### ターゲットユーザ
+- 共有するべき知識や社内ルールの多い企業様
+​
+### 主な利用シーン
+- 人材教育
+- 新しいルールの周知
+- 知識の共有と蓄積
+- 
 
-* Ruby version
+## 設計書
+- テーブル定義書:後ほど作成
+- ER図:後ほど
+- アプリケーション詳細設計書:後ほど作成
 
-* System dependencies
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+- 後ほど記入
