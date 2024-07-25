@@ -20,9 +20,9 @@
 - 
 
 ## 設計書
-- テーブル定義書:後ほど作成
-- ER図:後ほど
-- アプリケーション詳細設計書:後ほど作成
+- テーブル定義書:https://docs.google.com/spreadsheets/d/13tSnnwKEsOTuErXh1edHiyoeL5Wv-FqpERGqqC2ci60/edit?usp=sharing
+- ER図:https://drive.google.com/file/d/1MSr0oSMG6lwRr-b404rwA3rdFxrFrKmH/view?usp=sharing
+- アプリケーション詳細設計書:https://drive.google.com/file/d/1i0fzxDcP_qkOhUX4sehm3kWn99nT5MG1/view?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
