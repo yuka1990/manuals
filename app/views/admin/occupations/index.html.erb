@@ -1,0 +1,8 @@
+<h1>新規登録</h1>
+
+<%= render 'form', occupation: @occupation ,submit: '投稿' %>
+
+<h1>登録一覧</h1>
+<% @occupations.each do |occupation| %>
+<%= occupation.name %>
+<% end %>
