@@ -10,7 +10,7 @@ class Admin::DepartmentsController < ApplicationController
     if @department.save
       redirect_to admin_departments_path, notice: "投稿完了"
     else
-      @department = Department.all
+      @departments = Department.all
       render :index
     end
   end
