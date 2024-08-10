@@ -1,0 +1,5 @@
+<%= form_with model: department, url:'/admin/departments' do |f| %>
+  <h4>部署名</h4>
+  <%= f.text_field :name %>
+  <%= f.submit submit %>
+<% end %>
