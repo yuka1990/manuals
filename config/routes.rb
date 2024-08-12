@@ -41,6 +41,7 @@ Rails.application.routes.draw do
     resources :comments
     resources :departments, only: [:index, :create, :edit, :update]
     resources :occupations, only: [:index, :create, :edit, :update]
+    resources :categories, only: [:index, :create, :edit, :update]
     resources :users, only: [:index, :show, :edit, :update]
     resources :procedures
   end
