@@ -39,9 +39,9 @@ Rails.application.routes.draw do
     root to:'homes#top'
     resources :posts
     resources :comments
-    resources :departments, only: [:index, :create, :edit, :update]
-    resources :occupations, only: [:index, :create, :edit, :update]
-    resources :categories, only: [:index, :create, :edit, :update]
+    resources :departments, only: [:index, :create, :edit, :update, :destroy]
+    resources :occupations, only: [:index, :create, :edit, :update, :destroy]
+    resources :categories, only: [:index, :create, :edit, :update, :destroy]
     resources :users, only: [:index, :show, :edit, :update]
     resources :procedures
   end

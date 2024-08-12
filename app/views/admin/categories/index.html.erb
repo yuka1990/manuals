@@ -1,0 +1,10 @@
+<h1>新規登録</h1>
+
+<%= render 'form', category: @category , submit:'投稿' %>
+
+<h1>登録一覧</h1>
+<% @categories.each do |category| %>
+  <%= category.name %>
+  <%= link_to "編集" , edit_admin_category_path(category) %>
+  <%= link_to "削除" , admin_category_path(category),  method: :delete , data: { confirm: '削除しますが問題ないですか?' } %>
+<% end %>
