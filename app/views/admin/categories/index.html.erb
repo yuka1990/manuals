@@ -1,6 +1,6 @@
-<h1>新規登録</h1>
+<h1>カテゴリー名新規登録</h1>
 
-<%= render 'form', category: @category , submit:'投稿' %>
+<%= render 'form', category: @category , url: admin_categories_path, submit:'投稿' %>
 
 <h1>登録一覧</h1>
 <% @categories.each do |category| %>

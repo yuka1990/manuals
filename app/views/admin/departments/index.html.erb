@@ -1,8 +1,10 @@
-<h1>新規登録</h1>
+<h1>部署名新規登録</h1>
 
-<%= render 'form', department: @department ,submit: '投稿' %>
+<%= render 'form', department: @department , url: admin_departments_path, submit: '投稿' %>
 
 <h1>登録一覧</h1>
 <% @departments.each do |department| %>
   <%= department.name %>
+  <%= link_to "編集" ,edit_admin_department_path(department) %>
+  <%= link_to "削除" ,admin_department_path(department), method: :delete, date: { confirm: "削除しますが問題ないですか？"} %>
 <% end %>

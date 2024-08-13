@@ -22,6 +22,15 @@ class Admin::CategoriesController < ApplicationController
   def edit
   end
   
+  def update
+    if @category.update(category_params)
+      redirect_to admin_categories_path, notice: "更新完了"
+    else
+      flash.now[:alert] = "更新失敗"
+      render :edit
+    end
+  end
+  
   def destroy
     @category.destroy
     redirect_to admin_categories_path, notice: "削除完了"

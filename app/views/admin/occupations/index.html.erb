@@ -1,8 +1,10 @@
-<h1>新規登録</h1>
+<h1>職種名新規登録</h1>
 
-<%= render 'form', occupation: @occupation ,submit: '投稿' %>
+<%= render 'form', occupation: @occupation ,url: admin_occupations_path, submit: '投稿' %>
 
 <h1>登録一覧</h1>
 <% @occupations.each do |occupation| %>
-<%= occupation.name %>
+  <%= occupation.name %>
+  <%= link_to "編集" , edit_admin_occupation_path(occupation) %>
+  <%= link_to "削除" , admin_occupation_path(occupation), method: :delete , data: { confirm: "削除しますが問題ないですか？" } %>
 <% end %>
