@@ -38,13 +38,14 @@ Rails.application.routes.draw do
   
   namespace :admin do
     root to:'homes#top'
-    resources :posts
+    resources :posts do
+       resources :procedures
+    end
     resources :comments
     resources :departments, only: [:index, :create, :edit, :update, :destroy]
     resources :occupations, only: [:index, :create, :edit, :update, :destroy]
     resources :categories, only: [:index, :create, :edit, :update, :destroy]
     resources :users, only: [:index, :show, :edit, :update]
-    resources :procedures
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
