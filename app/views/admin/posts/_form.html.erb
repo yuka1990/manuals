@@ -1,0 +1,50 @@
+<%= form_with model: post, url: url do |f| %>
+  <table>
+    <tbody>
+      <tr>
+        <th>
+          <h4>タイトル</h4>
+        </th>
+        <td>
+          <%= f.text_field :title %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <h4>カテゴリー</h4>
+        </th>
+        <td>
+          <%= f.collection_select :category_id, Category.all, :id, :name, {include_blank: "--選択してください"} %>
+        </td>
+      <tr>
+        <th>
+          <h4>難易度</h4>
+        </th>
+        <td>
+          <%= f.select :level, Post.levels.keys %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <h4>公開ステータス</h4>
+        </th>
+        <td>
+          <%= f.select :status, Post.statuses.keys %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <h4>本文</h4>
+        </th>
+        <td>
+          <%= f.text_area :body %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.submit submit %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <% end %>

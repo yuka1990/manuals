@@ -11,8 +11,11 @@ class Admin::PostsController < ApplicationController
   
   def create
     @post = Post.new(post_params)
-    if @post.save
-      redirect_to admin_department_path(@post), notice: "投稿完了"
+    if @post.save!
+      redirect_to admin_post_path(@post), notice: "投稿完了"
+    else
+      flash.now[:alert] = "投稿に失敗しました。"
+      render :new
     end
   end
   
@@ -29,7 +32,7 @@ class Admin::PostsController < ApplicationController
   end
   
   def post_params
-    params.require(:post).permit(:title, :body, :level, :status)
+    params.require(:post).permit(:category_id, :title, :body, :level, :status, :files)
   end
   
 end

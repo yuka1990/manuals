@@ -13,6 +13,33 @@ class Admin::ProceduresController < ApplicationController
   def index
     @post = Post.find(params[:post_id])
     @procedures = @post.procedures
-    @procedure = Procedure.new
   end
+  
+  def show
+  end
+  
+  def update
+    if @procedure.save(procedure_params)
+      redirect_to admin_post_path(@post), notice: "更新完了"
+    else
+      flash.now[:alert] = "Failed to save"
+      render :edit
+    end
+  end
+  
+  def destroy
+    @procedure.destroy
+    redirect_to admin_posts_path
+  end
+  
+  private
+  
+  def ensure_procedure
+    @procedure = Procedure.find(params[:id])
+  end
+  
+  def procedure_params
+    params.require(:procedure).permit(:post_id, :procedure_number, :title, :explain)
+  end
+  
 end
