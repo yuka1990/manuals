@@ -15,6 +15,6 @@ class Post < ApplicationRecord
   validates :status, presence: true
   
   enum level: { Beginner: 0, Intermediate: 1, Advanced: 2, Pro: 3 }
-  enum status: { Publish: 0, Draft: 1, Awaiting_approval: 2 }
+  enum status: { Draft: 0, Awaiting_approval: 1, Publish: 2 }
   
 end

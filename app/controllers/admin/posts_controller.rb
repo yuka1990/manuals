@@ -11,7 +11,7 @@ class Admin::PostsController < ApplicationController
   
   def create
     @post = Post.new(post_params)
-    if @post.save!
+    if @post.save
       redirect_to admin_post_path(@post), notice: "投稿完了"
     else
       flash.now[:alert] = "投稿に失敗しました。"
@@ -25,6 +25,17 @@ class Admin::PostsController < ApplicationController
   def edit
   end
   
+  def update
+    if @post.update(post_params)
+      redirect_to admin_post_path, notice: "更新完了"
+    else
+      flash[:alert] = "更新失敗"
+      redirect_to request.referer
+    end
+  end
+
+
+
   private
   
   def ensure_post

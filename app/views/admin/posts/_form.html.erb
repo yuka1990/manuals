@@ -21,7 +21,7 @@
           <h4>難易度</h4>
         </th>
         <td>
-          <%= f.select :level, Post.levels.keys %>
+          <%= f.select :level, Post.levels_i18n.invert %>
         </td>
       </tr>
       <tr>
@@ -29,7 +29,7 @@
           <h4>公開ステータス</h4>
         </th>
         <td>
-          <%= f.select :status, Post.statuses.keys %>
+          <%= f.select :status, Post.statuses_i18n.invert %>
         </td>
       </tr>
       <tr>
