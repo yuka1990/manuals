@@ -109,14 +109,12 @@ ActiveRecord::Schema.define(version: 2024_08_09_071418) do
   create_table "posts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
     t.integer "category_id"
     t.string "title", null: false
     t.text "body", null: false
     t.integer "level", null: false
     t.integer "status", null: false
     t.index ["category_id"], name: "index_posts_on_category_id"
-    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "procedures", force: :cascade do |t|
@@ -171,7 +169,6 @@ ActiveRecord::Schema.define(version: 2024_08_09_071418) do
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"
   add_foreign_key "posts", "categories"
-  add_foreign_key "posts", "users"
   add_foreign_key "procedures", "posts"
   add_foreign_key "procedures", "users"
   add_foreign_key "requests", "categories"
