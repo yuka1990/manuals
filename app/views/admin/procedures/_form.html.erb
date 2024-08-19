@@ -1,0 +1,41 @@
+<%= form_with model: procedure, url: url do |f| %>
+  <table>
+    <tbody>
+      <tr>
+        <th>
+          <h4>手順番号</h4>
+        </th>
+        <td>
+          <%= f.text_field :procedure_number %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <h4>タイトル</h4>
+        </th>
+        <td>
+          <%= f.text_field :title %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <h4>説明</h4>
+        </th>
+        <td>
+          <%= f.text_area :explain %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <h4>画像</h4>
+        </th>
+        <td>
+          <%= f.file_field :image %>
+        </td>
+      </tr>
+      <tr>
+        <th><%= f.submit submit %></th>
+      </tr>
+    </tbody>
+  </table>
+  <% end %>

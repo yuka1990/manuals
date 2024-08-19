@@ -120,13 +120,11 @@ ActiveRecord::Schema.define(version: 2024_08_09_071418) do
   create_table "procedures", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
     t.integer "post_id"
     t.integer "procedure_number", null: false
     t.string "title", null: false
     t.text "explain", null: false
     t.index ["post_id"], name: "index_procedures_on_post_id"
-    t.index ["user_id"], name: "index_procedures_on_user_id"
   end
 
   create_table "requests", force: :cascade do |t|
@@ -170,7 +168,6 @@ ActiveRecord::Schema.define(version: 2024_08_09_071418) do
   add_foreign_key "group_users", "users"
   add_foreign_key "posts", "categories"
   add_foreign_key "procedures", "posts"
-  add_foreign_key "procedures", "users"
   add_foreign_key "requests", "categories"
   add_foreign_key "requests", "users"
   add_foreign_key "users", "departments"

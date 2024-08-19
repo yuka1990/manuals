@@ -8,7 +8,6 @@ class User < ApplicationRecord
   belongs_to :department
   belongs_to :occupation
   
-  has_many :procedures, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :group_users, dependent: :destroy

@@ -2,10 +2,10 @@ class Admin::ProceduresController < ApplicationController
   before_action :ensure_procedure, only: [:edit, :update, :show, :destroy]
   
   def create
-    post = Post.find(params[:id])
+    @post = Post.find_by(id: params[:post_id])
     @procedure = Procedure.new(procedure_params)
     @procedure.post_id = post.id
-    if @procedure.save
+    if @procedure.save!
       redirect_to admin_post_path(@post), notice: "投稿完了"
     end
   end
@@ -39,7 +39,7 @@ class Admin::ProceduresController < ApplicationController
   end
   
   def procedure_params
-    params.require(:procedure).permit(:post_id, :procedure_number, :title, :explain)
+    params.require(:procedure).permit(:post_id, :procedure_number, :title, :explain, :image)
   end
   
 end
