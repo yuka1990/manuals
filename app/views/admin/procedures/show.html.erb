@@ -1,0 +1,11 @@
+<h1>手順<%= @procedure.procedure_number %>
+  <%= link_to edit_admin_post_procedure_path(@post,@procedure) do %>
+    <i class="fa-solid fa-pencil"></i>
+  <% end %>
+  <%= link_to admin_post_procedure_path(@procedure.post,@procedure), method: :delete, data: {confirm: '本当に削除しますか？'} do %>
+    <i class="fa-solid fa-trash-can"></i>
+  <% end %>
+</h1>
+<h3><%= @procedure.title %></h3>
+<%= @procedure.explain %></br>
+<%= image_tag @procedure.image %>

@@ -1,5 +1,6 @@
 class Admin::ProceduresController < ApplicationController
   before_action :ensure_procedure, only: [:edit, :update, :show, :destroy]
+  before_action :ensure_post, only: [:index, :update, :show]
   
   def new
     @procedure = Procedure.new
@@ -16,7 +17,6 @@ class Admin::ProceduresController < ApplicationController
   end
   
   def index
-    @post = Post.find(params[:post_id])
     @procedures = @post.procedures
   end
   
@@ -24,7 +24,7 @@ class Admin::ProceduresController < ApplicationController
   end
   
   def update
-    if @procedure.save(procedure_params)
+    if @procedure.update(procedure_params)
       redirect_to admin_post_path(@post), notice: "更新完了"
     else
       flash.now[:alert] = "Failed to save"
@@ -34,13 +34,17 @@ class Admin::ProceduresController < ApplicationController
   
   def destroy
     @procedure.destroy
-    redirect_to admin_posts_path
+    redirect_to admin_post_path(params[:post_id])
   end
   
   private
   
   def ensure_procedure
     @procedure = Procedure.find(params[:id])
+  end
+  
+  def ensure_post
+    @post = Post.find(params[:post_id])
   end
   
   def procedure_params

@@ -1,0 +1,3 @@
+<h1>工程修正</h1>
+<%= render 'form', post: @post,procedure: @procedure ,url: admin_post_procedure_path, submit: '変更' %>
+<%= link_to '削除する', admin_post_procedure_path(@procedure.post,@procedure), method: :delete, data: {confirm: '本当に削除しますか？'} %>
