@@ -1,10 +1,31 @@
-<h1>カテゴリー名新規登録</h1>
-
-<%= render 'form', category: @category , url: admin_categories_path, submit:'投稿' %>
-
-<h1>登録一覧</h1>
-<% @categories.each do |category| %>
-  <%= category.name %>
-  <%= link_to "編集" , edit_admin_category_path(category) %>
-  <%= link_to "削除" , admin_category_path(category),  method: :delete , data: { confirm: '削除しますが問題ないですか?' } %>
-<% end %>
+<div class="container">
+  <h1>カテゴリー名新規登録</h1>
+  <div class="row">
+    <div class="col-6 my-5">
+        <%= render 'form', category: @category , url: admin_categories_path, submit:'登録' %>
+    </div>
+    <div class="col-6 my-5">
+      <h4>登録一覧</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>カテゴリー</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <% @categories.each do |category| %>
+          <tbody>
+            <tr>
+              <td><%= category.name %></td>
+              <td>
+                <%= link_to "編集" , edit_admin_category_path(category) %>
+                <%= link_to "削除" , admin_category_path(category),  method: :delete , data: { confirm: '削除しますが問題ないですか?' } %>
+              </td>
+            </tr>
+          </tbody>
+          <% end %>
+        </table>
+    </div>
+  </div>
+</div>
