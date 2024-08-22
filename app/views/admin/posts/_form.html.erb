@@ -2,42 +2,32 @@
   <table>
     <tbody>
       <tr>
-        <th>
-          <h4>タイトル</h4>
-        </th>
+        <th>タイトル</th>
         <td>
           <%= f.text_field :title %>
         </td>
       </tr>
       <tr>
-        <th>
-          <h4>カテゴリー</h4>
-        </th>
+        <th>カテゴリー</th>
         <td>
           <%= f.collection_select :category_id, Category.all, :id, :name, {include_blank: "--選択してください"} %>
         </td>
       <tr>
-        <th>
-          <h4>難易度</h4>
-        </th>
+        <th>難易度</th>
         <td>
           <%= f.select :level, Post.levels_i18n.invert %>
         </td>
       </tr>
       <tr>
-        <th>
-          <h4>公開ステータス</h4>
-        </th>
+        <th>公開ステータス</th>
         <td>
           <%= f.select :status, Post.statuses_i18n.invert %>
         </td>
       </tr>
       <tr>
-        <th>
-          <h4>本文</h4>
-        </th>
+        <th>本文</th>
         <td>
-          <%= f.text_area :body %>
+          <%= f.text_area :body, size: "100x10" %>
         </td>
       </tr>
       <tr>

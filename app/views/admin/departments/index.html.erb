@@ -1,10 +1,29 @@
-<h1>部署名新規登録</h1>
-
-<%= render 'form', department: @department , url: admin_departments_path, submit: '投稿' %>
-
-<h1>登録一覧</h1>
-<% @departments.each do |department| %>
-  <%= department.name %>
-  <%= link_to "編集" ,edit_admin_department_path(department) %>
-  <%= link_to "削除" ,admin_department_path(department), method: :delete, date: { confirm: "削除しますが問題ないですか？"} %>
-<% end %>
+<div class="container">
+  <h1>部署名新規登録</h1>
+  <div class="row">
+    <div class="col-6 my-5">
+      <%= render 'form', department: @department , url: admin_departments_path, submit: '投稿' %>
+    </div>
+    <div class="col-6 my-5">
+      <h4>登録一覧</h4>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>部署</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @departments.each do |department| %>
+            <tr>
+              <td><%= department.name %></td>
+              <td><%= link_to "編集" ,edit_admin_department_path(department) %></td>
+              <td><%= link_to "削除" ,admin_department_path(department), method: :delete, date: { confirm: "削除しますが問題ないですか？"} %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>

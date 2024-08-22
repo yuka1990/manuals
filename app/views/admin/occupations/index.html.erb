@@ -1,10 +1,29 @@
-<h1>職種名新規登録</h1>
-
-<%= render 'form', occupation: @occupation ,url: admin_occupations_path, submit: '投稿' %>
-
-<h1>登録一覧</h1>
-<% @occupations.each do |occupation| %>
-  <%= occupation.name %>
-  <%= link_to "編集" , edit_admin_occupation_path(occupation) %>
-  <%= link_to "削除" , admin_occupation_path(occupation), method: :delete , data: { confirm: "削除しますが問題ないですか？" } %>
-<% end %>
+<div class="container">
+  <h1>職種名新規登録</h1>
+  <div class='row'>
+    <div class="col-6 my-5">
+      <%= render 'form', occupation: @occupation ,url: admin_occupations_path, submit: '投稿' %>
+    </div>
+    <div class="col-6 my-5">
+      <h4>登録一覧</h4>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>職種名</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @occupations.each do |occupation| %>
+            <tr>
+              <td><%= occupation.name %></td>
+              <td><%= link_to "編集" , edit_admin_occupation_path(occupation) %></td>
+              <td><%= link_to "削除" , admin_occupation_path(occupation), method: :delete , data: { confirm: "削除しますが問題ないですか？" } %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>

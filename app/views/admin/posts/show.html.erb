@@ -1,44 +1,53 @@
-<h1><%= @post.title %>のマニュアル</h1>
-
-<p>概要</p>
-<%= @post.body %>
-
-<table>
-  <tbody>
-    <tr>
-      <th>カテゴリー：</th>
-      <td><%= @post.category.name %></td>
-    </tr>
-    <tr>
-      <th>レベル：</th>
-      <td><%= @post.level_i18n %></td>
-    </tr>
-    <tr>
-      <th>リリース状況：</th>
-      <td><%= @post.status_i18n %></td>
-    </tr>
-    <tr>
-      <th><%= link_to "編集",edit_admin_post_path(@post) %></th>
-    </tr>
-  </tbody>
-</table>
-<h1>
-  <%= link_to new_admin_post_procedure_path(@post) do %>
-    <i class="fa-solid fa-circle-plus"></i>
-  <% end %>
-</h1>
-
-<% @post.procedures.each do |procedure| %>
-  <h2>
-    <%= link_to admin_post_procedure_path(@post,procedure) do %>
-    手順<%= procedure.procedure_number %>
+<div class="container">
+  <h1><%= @post.title %>のマニュアル</h1>
+  <h1>
+    <%= link_to new_admin_post_procedure_path(@post) do %>
+      <i class="fa-solid fa-circle-plus"></i>
     <% end %>
-    <%= link_to edit_admin_post_procedure_path(@post,procedure) do %>
-      <i class="fa-solid fa-pencil"></i>
-    <% end %>
-
-  </h2>
-  <p><%= procedure.title %></p>
-  <p><%= procedure.explain %></p>
-   <%= image_tag procedure.image %>
-<% end %>
+  </h1>
+  <div class='row'>
+    <div class="col my-5">
+      <table class="table table-responsive">
+        <tbody>
+          <tr>
+            <th class="w-25">概要</th>
+            <td><%= @post.body %></td>
+          </tr>
+          <tr>
+            <th>カテゴリー</th>
+            <td><%= @post.category.name %></td>
+          </tr>
+          <tr>
+            <th>レベル</th>
+            <td><%= @post.level_i18n %></td>
+          </tr>
+          <tr>
+            <th>リリース状況</th>
+            <td><%= @post.status_i18n %></td>
+          </tr>
+          <tr>
+            <th><%= link_to "編集",edit_admin_post_path(@post) %></th>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class='row'>
+    <div class="col my-5">
+      <% @post.procedures.each do |procedure| %>
+        <h2>
+          <%= link_to admin_post_procedure_path(@post,procedure) do %>
+          手順<%= procedure.procedure_number %>
+          <% end %>
+          <%= link_to edit_admin_post_procedure_path(@post,procedure) do %>
+            <i class="fa-solid fa-pencil"></i>
+          <% end %>
+        </h2>
+        <p><%= procedure.title %></p>
+        <p><%= procedure.explain %></p>
+         <%= image_tag procedure.image %>
+      <% end %>
+    </div>
+  </div>
+</div>

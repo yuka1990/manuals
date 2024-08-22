@@ -1,2 +1,8 @@
-<h1>新規登録</h1>
-<%= render 'form', post: @post ,url: admin_posts_path, submit: '登録' %>
+<div class="container">
+  <h1>新規登録</h1>
+  <div class='row'>
+    <div class="col my-5">
+      <%= render 'form', post: @post ,url: admin_posts_path, submit: '登録' %>
+    </div>
+  </div>
+</div>
